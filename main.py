@@ -59,8 +59,23 @@ def generate_timetable():
     # 1. Check if a valid timetable is possible with the given constraints
     # 2. Assign subjects and teachers to periods for each class
     # 3. Ensure all constraints are satisfied
-    
-    return timetable
+    for i in range(1,periods_per_day+1):
+        timetable.append(periods_per_day[i])
+        if timetable:
+            return True
+        else:
+            return False    
+    for day in range(days_of_week):
+        timetable.append(days_of_week[days])
+        if timetable:
+            return True
+        else:
+            return False    
+    for eachclass in classes:
+        classes.append(teachers)
+    for eachclass in classes:
+        classes.append(subjects)    
+    return timetable  if timetable else "Not valid timetable" 
 
 
 def display_timetable(timetable):
@@ -73,6 +88,10 @@ def display_timetable(timetable):
     # TODO: Implement timetable display logic
     # Display the timetable for each class
     # Display the timetable for each teacher
+
+
+
+
     pass
 
 
@@ -91,6 +110,20 @@ def validate_timetable(timetable):
     # Check if all classes have their required number of periods for each subject
     # Check if teachers are not double-booked
     # Check if teachers are only teaching subjects they can teach
+
+    for eachclass in classes:
+        if class_subject_periods[i]:
+            return True
+        else:
+            return False
+    for eachclass in classes:
+        if eachclass[i]!=eachclass[i+1]:
+            return True
+        return False    
+    for i in timetable:
+        if teachers[i]==subjects[i]:
+            return True
+        return False
     
     return False, "To be implemented"
 
