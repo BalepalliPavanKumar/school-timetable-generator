@@ -77,7 +77,6 @@ def generate_timetable():
         classes.append(subjects)    
     return timetable  if timetable else "Not valid timetable" 
 
-
 def display_timetable(timetable):
     """
     Display the generated timetable in a readable format.
